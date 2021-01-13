@@ -54,9 +54,7 @@ project "platform"
 
     includedirs 
     {
-        "system/src",
-        "foundation/src",
-        "foundation/src/pch"
+        "**"
     }
 
     links
@@ -77,9 +75,7 @@ project "rhi"
 
     includedirs 
     {
-        "platform/src",
-        "foundation/src",
-        "foundation/src/pch",
+        "**"
     }
 
     links
@@ -103,11 +99,7 @@ project "system"
 
     includedirs 
     {
-        "platform/src",
-        "rhi/src",
-        "foundation/src",
-        "foundation/src/pch",
-        "imgui/src"
+        "**"
     }
 
     links
@@ -129,8 +121,7 @@ project "foundation"
 
     includedirs 
     {
-        "platform/src",
-        "foundation/src/pch"
+        "**"
     }
 
     links
@@ -151,10 +142,7 @@ project "imgui"
 
     includedirs 
     {
-        "platform/src",
-        "rhi/src",
-        "foundation/src",
-        "foundation/src/pch"
+        "**"
     }
 
     links
@@ -163,6 +151,45 @@ project "imgui"
     }
 
     dependson { "sharedpch" }
+
+project "ecs"
+    kind "SharedLib"
+    pchheader "pch.h"
+
+    files
+    {
+        "%{prj.name}/src/**.h",
+        "%{prj.name}/src/**.cpp"
+    }
+
+    includedirs 
+    {
+        "**"
+    }
+
+    dependson { "sharedpch" }
+
+project "asset_loading"
+    kind "SharedLib"
+    pchheader "pch.h"
+
+    files
+    {
+        "%{prj.name}/src/**.h",
+        "%{prj.name}/src/**.cpp"
+    }
+
+    includedirs 
+    {
+        "**"
+    }
+
+    links
+    {
+    }
+
+    dependson { "sharedpch" }
+
 
 project "sharedpch"
     kind "SharedLib"
