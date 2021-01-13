@@ -69,7 +69,7 @@ inline static void CreateHashTable(HashTable<K, V>* table, AllocatorAPI* allocat
 }
 
 template<typename K, typename V>
-inline void HashTable<K,V>::Set(K key, V value)
+void HashTable<K,V>::Set(K key, V value)
 { 
     Hash64 hash = GetHash64(key);
     u64 index = hash % this->capacity;
@@ -182,7 +182,7 @@ inline bool HashTable<K,V>::Get(K key, V* outValue)
 }
 
 template<typename K, typename V>
-inline void HashTable<K,V>::Remove(K key)
+void HashTable<K,V>::Remove(K key)
 {
     Hash64 hash = GetHash64(key);
     u64 index = hash % this->capacity;

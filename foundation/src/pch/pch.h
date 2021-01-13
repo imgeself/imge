@@ -9,6 +9,9 @@
 #include <assert.h>
 #include <math.h>
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 #define ASSERT(x, string) { if(!(x)) { printf("Assertion Failed: %s\n", string); __debugbreak(); } }
 #define BIT(x) (1u << (x))
 
@@ -24,6 +27,7 @@
 typedef XXH64_hash_t Hash64;
 #include "HashTable.h"
 #include "Keycode.h"
+#include "math_util.h"
 
 
 // Memory
@@ -79,8 +83,8 @@ inline const char* AllocateString(ILinearAllocator* allocator, const char* strin
 // Return directory string without filename and last backslash
 inline void PathRemoveFilename(char* path, bool windowsPath = false)
 {
-    // Search extension dot. If there is we can remove filename section from the path
-    // If not, we assume path is a directory and we do nothing
+    // Search extension dot. If there is, we can remove filename section from the path
+    // If not, we assume the path is a directory and we do nothing
     if (strrchr(path, '.'))
     {
         if (windowsPath)
@@ -93,6 +97,31 @@ inline void PathRemoveFilename(char* path, bool windowsPath = false)
         }
     }
     
+}
+
+inline const char* PathGetFilename(const char* path, bool windowsPath = false)
+{
+    // Search extension dot. If there is, we can remove filename section from the path
+    // If not, we assume the path is a directory and we do nothing
+    if (strrchr(path, '.'))
+    {
+        if (windowsPath)
+        {
+            return strrchr(path, '\\') + 1;
+        }
+        else
+        {
+            return strrchr(path, '/') + 1;
+        }
+    }
+    
+}
+
+inline const char* PathGetExtension(const char* path)
+{
+    // Search extension dot. If there is, we can remove filename section from the path
+    // If not, we assume the path is a directory and we do nothing
+    return strrchr(path, '.');
 }
 
 #define NULL_INDEX 0xFFFFFFFF
@@ -190,4 +219,54 @@ inline void ReleaseHandle(HandlePool* pool, Handle handle)
     emptyData->nextFreeIndex = pool->freeIndex;
     pool->freeIndex = handle.index;
 }
+
+struct GPUBuffer 
+{
+    Handle handle = INVALID_HANDLE;
+};
+
+struct GPUTexture2D
+{
+    Handle handle = INVALID_HANDLE;
+};
+
+struct GPURenderTargetView
+{
+    Handle handle = INVALID_HANDLE;
+};
+
+struct GPUDepthStencilView
+{
+    Handle handle = INVALID_HANDLE;
+};
+
+struct GPUShaderResourceView
+{
+    Handle handle = INVALID_HANDLE;
+};
+
+struct GPUUnorderedAccessView
+{
+    Handle handle = INVALID_HANDLE;
+};
+
+struct GPUSamplerState
+{
+    Handle handle = INVALID_HANDLE;
+};
+
+struct GPUQuery
+{
+    Handle handle = INVALID_HANDLE;
+};
+
+struct GPUGraphicsPipelineState
+{
+    Handle handle = INVALID_HANDLE;
+};
+
+struct GPUComputePipelineState
+{
+    Handle handle = INVALID_HANDLE;
+};
 

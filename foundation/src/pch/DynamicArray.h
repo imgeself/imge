@@ -60,7 +60,7 @@ inline Type DynamicArray<Type>::PopFirst()
 
     Type item = this->data[0];
     // Shift array
-    memcpy(this->data, this->data + 1, sizeof(Type) * (this->length - 1));
+    memmove(this->data, this->data + 1, sizeof(Type) * (this->length - 1));
     this->allocator->Free(this->allocator->instance, sizeof(Type));
     this->length--;
     return item;
@@ -79,7 +79,7 @@ inline void DynamicArray<Type>::Insert(Type item, u32 index)
 {
     ASSERT(index < this->length, "Index out of bounds");
     this->allocator->Alloc(this->allocator->instance, sizeof(Type));
-    memcpy(this->data + index + 1, this->data + index, sizeof(Type) * (this->length - index));
+    memmove(this->data + index + 1, this->data + index, sizeof(Type) * (this->length - index));
     this->data[index] = item;
     this->length++;
 }
@@ -88,7 +88,7 @@ template<typename Type>
 inline void DynamicArray<Type>::RemoveAt(u32 index)
 {
     ASSERT(index < this->length, "Index out of bounds");
-    memcpy(this->data + index, this->data + index + 1, sizeof(Type) * (this->length - index - 1));
+    memmove(this->data + index, this->data + index + 1, sizeof(Type) * (this->length - index - 1));
     this->allocator->Free(this->allocator->instance, sizeof(Type));
 }
 
