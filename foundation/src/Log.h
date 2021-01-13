@@ -33,5 +33,3 @@ struct LogAPI
 #define LOG_DEBUG(logAPI, ...) logAPI->Log(LOG_DEBUG, __VA_ARGS__)
 #define LOG_WARNING(logAPI, ...) logAPI->Log(LOG_WARNING, __VA_ARGS__)
 #define LOG_ERROR(logAPI, ...) logAPI->Log(LOG_ERROR, __VA_ARGS__)
-
-void RegisterLogAPI(APIRegistry* registry, bool reload);

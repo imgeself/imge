@@ -184,7 +184,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             POINT pt;
             pt.x = GET_X_LPARAM(lParam);
             pt.y = GET_Y_LPARAM(lParam);
-            inputState->mousePosClient = Vector2 {pt.x, pt.y};
+            inputState->mousePosClient = Vector2 {(f32) pt.x, (f32) pt.y};
             inputState->mouseKeyDown[MOUSE_LBUTTON] = true;
         } break;
         case WM_RBUTTONDOWN:
@@ -195,7 +195,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             POINT pt;
             pt.x = GET_X_LPARAM(lParam);
             pt.y = GET_Y_LPARAM(lParam);
-            inputState->mousePosClient = Vector2 {pt.x, pt.y};
+            inputState->mousePosClient = Vector2 {(f32) pt.x, (f32) pt.y};
             inputState->mouseKeyDown[MOUSE_RBUTTON] = true;
         } break;
         case WM_MBUTTONDOWN:
@@ -206,7 +206,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             POINT pt;
             pt.x = GET_X_LPARAM(lParam);
             pt.y = GET_Y_LPARAM(lParam);
-            inputState->mousePosClient = Vector2 {pt.x, pt.y};
+            inputState->mousePosClient = Vector2 {(f32) pt.x, (f32) pt.y};
             inputState->mouseKeyDown[MOUSE_MBUTTON] = true;
         } break;
         case WM_LBUTTONUP:
@@ -217,7 +217,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             POINT pt;
             pt.x = GET_X_LPARAM(lParam);
             pt.y = GET_Y_LPARAM(lParam);
-            inputState->mousePosClient = Vector2 {pt.x, pt.y};
+            inputState->mousePosClient = Vector2 {(f32) pt.x, (f32) pt.y};
             inputState->mouseKeyDown[MOUSE_LBUTTON] = false;
         } break;
         case WM_RBUTTONUP:
@@ -228,7 +228,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             POINT pt;
             pt.x = GET_X_LPARAM(lParam);
             pt.y = GET_Y_LPARAM(lParam);
-            inputState->mousePosClient = Vector2 {pt.x, pt.y};
+            inputState->mousePosClient = Vector2 {(f32) pt.x, (f32) pt.y};
             inputState->mouseKeyDown[MOUSE_RBUTTON] = false;
         } break;
         case WM_MBUTTONUP:
@@ -239,7 +239,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             POINT pt;
             pt.x = GET_X_LPARAM(lParam);
             pt.y = GET_Y_LPARAM(lParam);
-            inputState->mousePosClient = Vector2 {pt.x, pt.y};
+            inputState->mousePosClient = Vector2 {(f32) pt.x, (f32) pt.y};
             inputState->mouseKeyDown[MOUSE_MBUTTON] = false;
         } break;
         case WM_MOUSEMOVE:
@@ -247,7 +247,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             POINT pt;
             pt.x = GET_X_LPARAM(lParam);
             pt.y = GET_Y_LPARAM(lParam);
-            inputState->mousePosClient = Vector2 {pt.x, pt.y};
+            inputState->mousePosClient = Vector2 {(f32) pt.x, (f32) pt.y};
         } break;
         case WM_MOUSEWHEEL:
         {
@@ -257,7 +257,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             POINT pt;
             pt.x = GET_X_LPARAM(lParam);
             pt.y = GET_Y_LPARAM(lParam);
-            inputState->mousePosClient = Vector2 {pt.x, pt.y};
+            inputState->mousePosClient = Vector2 {(f32) pt.x, (f32) pt.y};
         } break;
         case WM_CHAR:
         {

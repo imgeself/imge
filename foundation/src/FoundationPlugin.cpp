@@ -3,6 +3,9 @@
 #include "ApiRegistry.h"
 #include "Profiler.h"
 
+extern void RegisterProfilerAPI(APIRegistry* registry, bool reload);
+extern void RegisterLogAPI(APIRegistry* registry, bool reload);
+
 extern "C"
 {
     MODULE_EXPORT void LoadPlugin(APIRegistry* registry, bool reload)

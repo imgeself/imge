@@ -213,7 +213,7 @@ static void ImGui_Impl_CreateFontsTexture(RHIAPI* rhiAPI)
         desc.addressModeU = TextureAddressMode_WRAP;
         desc.addressModeV = TextureAddressMode_WRAP;
         desc.addressModeW = TextureAddressMode_WRAP;
-        desc.comparisonFunction = COMPARISON_ALWAYS;
+        //desc.comparisonFunction = COMPARISON_ALWAYS;
         gState->fontSampler = rhiAPI->CreateSamplerState(&desc, 0);
     }
 }

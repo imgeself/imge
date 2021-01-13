@@ -25,8 +25,6 @@ struct ProfilerAPI
     void (*Shutdown)(AllocatorAPI* allocatorAPI);
 };
 
-void RegisterProfilerAPI(APIRegistry* registry, bool reload);
-
 struct ProfileScope
 {
     const char* name;

@@ -30,7 +30,6 @@ struct D3D11State
 
 D3D11State* gState = nullptr;
 
-// Direct3D11
 struct BufferD3D11
 {
     ID3D11Buffer* buffer;

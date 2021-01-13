@@ -2,56 +2,6 @@
 
 struct APIRegistry;
 
-struct GPUBuffer 
-{
-    Handle handle = INVALID_HANDLE;
-};
-
-struct GPUTexture2D
-{
-    Handle handle = INVALID_HANDLE;
-};
-
-struct GPURenderTargetView
-{
-    Handle handle = INVALID_HANDLE;
-};
-
-struct GPUDepthStencilView
-{
-    Handle handle = INVALID_HANDLE;
-};
-
-struct GPUShaderResourceView
-{
-    Handle handle = INVALID_HANDLE;
-};
-
-struct GPUUnorderedAccessView
-{
-    Handle handle = INVALID_HANDLE;
-};
-
-struct GPUSamplerState
-{
-    Handle handle = INVALID_HANDLE;
-};
-
-struct GPUQuery
-{
-    Handle handle = INVALID_HANDLE;
-};
-
-struct GPUGraphicsPipelineState
-{
-    Handle handle = INVALID_HANDLE;
-};
-
-struct GPUComputePipelineState
-{
-    Handle handle = INVALID_HANDLE;
-};
-
 enum DataFormat
 {
     FORMAT_UNKNOWN = 0,

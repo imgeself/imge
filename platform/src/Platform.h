@@ -57,12 +57,6 @@ struct InputEvent
     InputData data;
 };
 
-struct Vector2
-{
-    i64 x;
-    i64 y;
-};
-
 struct InputState
 {
     Vector2 mousePosClient;
